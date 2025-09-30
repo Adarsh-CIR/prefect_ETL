@@ -165,12 +165,12 @@ def apply_mapping_to_geojson(
     if output_file:
         gdf.to_file(output_file, driver="GeoJSON")
         print(f"✅ Saved {output_file}")
-        CONN_STR = "postgresql://DDR_DB:santhoshkumar@cir-ddr-tool-db.czsmk6a6ycrk.ap-south-1.rds.amazonaws.com:5432/postgres"
+        CONN_STR = "Connenction String"
         upload_to_postgis(gdf, "us_distribution_lines_test", CONN_STR, "append")
     else:
         gdf.to_file(geojson_file, driver="GeoJSON")
         print(f"✅ Overwritten {geojson_file}")
-        CONN_STR = "postgresql://DDR_DB:santhoshkumar@cir-ddr-tool-db.czsmk6a6ycrk.ap-south-1.rds.amazonaws.com:5432/postgres"
+        CONN_STR = "Connenction String"
         upload_to_postgis(gdf, "us_distribution_lines_test", CONN_STR, "append")
 
 
@@ -284,4 +284,5 @@ if __name__ == "__main__":
             continue
         
         process_state(csv_match, geojson_root, state_name,overwrite=False, target_fields=fields_to_standardize)
+
 
